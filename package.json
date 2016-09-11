@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "scripts": {
+    "lint": "eslint ./src ./test",
+    "start": "babel-node ./src/bin/server.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.5.0",
+    "eslint-config-mailonline": "^1.0.2",
+    "file-loader": "^0.9.0",
+    "isomorphic-webpack": "^1.1.0",
+    "resolve-url-loader": "^1.6.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.1.0-beta.22",
+    "webpack-dev-middleware": "^1.7.0"
+  },
+  "dependencies": {
+    "express": "^5.0.0-alpha.2",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  }
+}
