@@ -26,8 +26,12 @@ app.use(webpackDevMiddleware(compiler, {
   }
 }));
 
-createIsomorphicWebpack(webpackConfiguration);
+const {
+  compiler: isomorphicWebpackCompiler
+} = createIsomorphicWebpack(webpackConfiguration);
 
-app.get('/', isomorphicMiddleware);
+isomorphicWebpackCompiler.plugin('done', () => {
+  app.get('/', isomorphicMiddleware);
+});
 
 app.listen(8000);
