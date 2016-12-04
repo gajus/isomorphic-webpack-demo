@@ -1,38 +1,35 @@
-import path from 'path';
-import webpack from 'webpack';
+/* eslint-disable filenames/match-regex */
 
-module.exports = {
+import path from 'path';
+
+export default {
   context: __dirname,
   entry: {
-    'app': [
+    app: [
       path.resolve(__dirname, './app')
     ]
-  },
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: '[name].js'
   },
   module: {
     loaders: [
       {
         include: path.resolve(__dirname, './app'),
-        loader: 'babel',
-        test: /\.js$/,
+        loader: 'babel-loader',
+        test: /\.js$/
       },
       {
         loaders: [
           {
-            loader: 'style',
+            loader: 'style-loader',
             query: {
               sourceMap: 1
             }
           },
           {
-            loader: 'css',
+            loader: 'css-loader',
             query: {
-              'modules': 1,
-              'importLoaders': 1,
-              'localIdentName': '[path]___[name]___[local]'
+              modules: 1,
+              importLoaders: 1,
+              localIdentName: '[path]___[name]___[local]'
             }
           },
           'resolve-url'
@@ -40,5 +37,9 @@ module.exports = {
         test: /\.css$/
       }
     ]
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, './dist')
   }
 };

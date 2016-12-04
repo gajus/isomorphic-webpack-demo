@@ -1,11 +1,11 @@
 import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackConfiguration from './../webpack.configuration';
-import isomorphicMiddleware from './../middlewares/isomorphicMiddleware';
 import {
   createIsomorphicWebpack
 } from 'isomorphic-webpack';
+import webpackConfiguration from '../webpack.configuration';
+import isomorphicMiddleware from '../middlewares/isomorphicMiddleware';
 
 const compiler = webpack(webpackConfiguration);
 
