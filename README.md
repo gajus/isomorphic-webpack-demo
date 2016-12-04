@@ -14,6 +14,8 @@ export DEBUG=express:application,isomorphic-webpack
 npm start
 ```
 
+This will start the server on http://127.0.0.1:8000/.
+
 ## Scope of the demo
 
 The demo is intentionally lightweight.
