@@ -1,22 +1,22 @@
-# isomorphic-webpack-boilerplate
+# isomorphic-webpack-demo
 
-A boilerplate showing how to setup [isomorphic-webpack](https://github.com/gajus/isomorphic-webpack).
+A demo showing how to setup [isomorphic-webpack](https://github.com/gajus/isomorphic-webpack).
 
 ## Setup
 
 To start the server:
 
 ```sh
-git clone git@github.com:gajus/isomorphic-webpack-boilerplate.git
-cd ./isomorphic-webpack-boilerplate
+git clone git@github.com:gajus/isomorphic-webpack-demo.git
+cd ./isomorphic-webpack-demo
 npm install
 export DEBUG=express:application,isomorphic-webpack
 npm start
 ```
 
-## Scope
+## Scope of the demo
 
-This boilerpate is intentionally lightweight.
+The demo is intentionally lightweight.
 
 The generated output is limited to:
 
@@ -33,3 +33,5 @@ The generated output is limited to:
   </body>
 </html>
 ```
+
+[Raise an issue](https://github.com/gajus/isomorphic-webpack-demo/issues) to request additions to this demonstration.
