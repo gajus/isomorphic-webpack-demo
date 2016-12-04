@@ -30,7 +30,15 @@ const {
   compiler: isomorphicWebpackCompiler
 } = createIsomorphicWebpack(webpackConfiguration);
 
+let routesAreInitialized;
+
 isomorphicWebpackCompiler.plugin('done', () => {
+  if (routesAreInitialized) {
+    return;
+  }
+
+  routesAreInitialized = true;
+
   app.get('/', isomorphicMiddleware);
 });
 
