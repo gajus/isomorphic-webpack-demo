@@ -1,9 +1,8 @@
-import React from 'react';
 import {
   renderToString
 } from 'react-dom/server';
 
-const renderFullPage = (body, preloadedState) => {
+const renderFullPage = (body) => {
   // eslint-disable-next-line no-restricted-syntax
   return `
   <!doctype html>
@@ -18,7 +17,8 @@ const renderFullPage = (body, preloadedState) => {
   `;
 };
 
-const handleRoute = (res, renderProps) => {
+const handleRoute = (res) => {
+  // eslint-disable-next-line global-require
   const app = require('./../app').default;
 
   const rendered = renderToString(app);
