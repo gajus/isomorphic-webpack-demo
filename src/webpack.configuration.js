@@ -32,7 +32,7 @@ export default {
               modules: 1
             }
           },
-          'resolve-url'
+          'resolve-url-loader'
         ],
         test: /\.css$/
       }
