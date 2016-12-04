@@ -27,9 +27,9 @@ export default {
           {
             loader: 'css-loader',
             query: {
-              modules: 1,
               importLoaders: 1,
-              localIdentName: '[path]___[name]___[local]'
+              localIdentName: '[path]___[name]___[local]',
+              modules: 1
             }
           },
           'resolve-url'
