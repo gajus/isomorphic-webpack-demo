@@ -13,7 +13,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "^0.26.1",
     "eslint": "^3.11.1",
-    "eslint-config-mailonline": "^6.0.0",
+    "eslint-config-canonical": "^6.0.0",
     "file-loader": "^0.9.0",
     "isomorphic-webpack": "^1.5.0",
     "resolve-url-loader": "^1.6.0",
