@@ -15,6 +15,7 @@
     "eslint": "^3.12.2",
     "eslint-config-canonical": "^6.0.0",
     "file-loader": "^0.9.0",
+    "husky": "^0.12.0",
     "isomorphic-webpack": "^1.5.0",
     "resolve-url-loader": "^1.6.1",
     "style-loader": "^0.13.1",
@@ -25,6 +26,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint ./src ./test",
+    "precommit": "npm run lint",
     "start": "babel-node ./src/bin/server.js"
   }
 }
