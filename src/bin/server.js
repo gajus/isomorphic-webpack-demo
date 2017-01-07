@@ -27,19 +27,17 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 
 const {
-  compiler: isomorphicWebpackCompiler
-} = createIsomorphicWebpack(webpackConfiguration);
-
-let routesAreInitialized;
-
-isomorphicWebpackCompiler.plugin('done', () => {
-  if (routesAreInitialized) {
-    return;
-  }
-
-  routesAreInitialized = true;
-
-  app.get('/', isomorphicMiddleware);
+  createCompilationPromise
+} = createIsomorphicWebpack(webpackConfiguration, {
+  useCompilationPromise: true
 });
+
+app.use(async (req, res, next) => {
+  await createCompilationPromise();
+
+  next();
+});
+
+app.get('/', isomorphicMiddleware);
 
 app.listen(8000);
