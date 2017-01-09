@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "^5.0.0-alpha.2",
+    "isomorphic-webpack": "^1.6.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
