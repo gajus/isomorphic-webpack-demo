@@ -11,7 +11,14 @@ import webpackConfiguration from '../webpack.configuration';
 
 const compiler = webpack(webpackConfiguration);
 
-createIsomorphicWebpack(webpackConfiguration);
+const {
+  evalCode
+} = createIsomorphicWebpack(webpackConfiguration, {
+  nodeExternalsWhitelist: [
+    /^react\-router/,
+    /^history/
+  ]
+});
 
 const app = express();
 
@@ -36,7 +43,9 @@ const renderFullPage = (body) => {
   `;
 };
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
+  evalCode(req.protocol + '://' + req.get('host') + req.originalUrl);
+
   const appBody = renderToString(require('../app').default);
 
   res
