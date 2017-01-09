@@ -15,6 +15,25 @@ export default {
         include: path.resolve(__dirname, './app'),
         loader: 'babel-loader',
         test: /\.js$/
+      },
+      {
+        loaders: [
+          {
+            loader: 'style-loader',
+            query: {
+              sourceMap: 1
+            }
+          },
+          {
+            loader: 'css-loader',
+            query: {
+              importLoaders: 1,
+              localIdentName: '[path]___[name]___[local]',
+              modules: 1
+            }
+          }
+        ],
+        test: /\.css$/
       }
     ]
   },
