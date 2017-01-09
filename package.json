@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "express": "^5.0.0-alpha.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "webpack": "^2.2.0-rc.3",
+    "webpack-dev-middleware": "^1.9.0"
+  },
+  "private": true,
+  "scripts": {
+    "start": "babel-node ./src/bin/server.js"
+  }
+}
