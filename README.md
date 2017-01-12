@@ -7,7 +7,7 @@ A demo showing how to setup [isomorphic-webpack](https://github.com/gajus/isomor
 To start the server:
 
 ```sh
-git clone git@github.com:gajus/isomorphic-webpack-demo.git
+git clone https://github.com/gajus/isomorphic-webpack-demo.git
 cd ./isomorphic-webpack-demo
 npm install
 export DEBUG=express:application,isomorphic-webpack
