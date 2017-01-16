@@ -4,8 +4,10 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import {
   createIsomorphicWebpack
 } from 'isomorphic-webpack';
+import {
+  renderToString
+} from 'react-dom/server';
 import webpackConfiguration from '../webpack.configuration';
-import isomorphicMiddleware from '../middlewares/isomorphicMiddleware';
 
 const compiler = webpack(webpackConfiguration);
 
@@ -27,7 +29,8 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 
 const {
-  createCompilationPromise
+  createCompilationPromise,
+  evalBundleCode
 } = createIsomorphicWebpack(webpackConfiguration, {
   useCompilationPromise: true
 });
@@ -38,6 +41,27 @@ app.use(async (req, res, next) => {
   next();
 });
 
-app.get('/', isomorphicMiddleware);
+const renderFullPage = (body) => {
+  // eslint-disable-next-line no-restricted-syntax
+  return `
+  <!doctype html>
+  <html>
+    <head></head>
+    <body>
+      <div id='app'>${body}</div>
+
+      <script src='/static/app.js'></script>
+    </body>
+  </html>
+  `;
+};
+
+app.get('/', (req, res) => {
+  const requestUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
+  const app = renderToString(evalBundleCode(requestUrl).default);
+
+  res.send(renderFullPage(app));
+});
 
 app.listen(8000);
